@@ -1,0 +1,13 @@
+name: social
+replicas: 1
+namespace: social
+faults:
+  - name: social-delay
+    target: posts-storage-db-agent
+    start: 30s
+    duration: 15m
+    behaviors:
+      net-delay:
+        time: 50ms
+        jitter: 9ms
+
